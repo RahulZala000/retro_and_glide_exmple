@@ -16,10 +16,10 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    //var dataList = ArrayList < MydataItem > ()
+    var dataList = ArrayList < MydataItem > ()
     lateinit var recyclerView: RecyclerView
+    //var Base="https://jsonplaceholder.typicode.com/"
     var Base="https://jsonplaceholder.typicode.com/"
-    //val Base="https://jsonplaceholder.typicode.com/"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)

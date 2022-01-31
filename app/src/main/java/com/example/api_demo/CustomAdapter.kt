@@ -27,12 +27,12 @@ class CustomAdapter(private var mList: List<ViewModel>): RecyclerView.Adapter<Cu
 
         val id: TextView = itemView.findViewById(R.id.id)
         var title:TextView=itemView.findViewById(R.id.title)
-        var img:TextView=itemView.findViewById(R.id.image)
+
 
         fun data(get: ViewModel) {
             id.text =get.id
             title.text = get.title
-           // img.text=get.img
+
         }
     }
 
