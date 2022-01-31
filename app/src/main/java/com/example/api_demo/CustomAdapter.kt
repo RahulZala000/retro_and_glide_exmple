@@ -1,8 +1,10 @@
 package com.example.api_demo
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,10 +27,12 @@ class CustomAdapter(private var mList: List<ViewModel>): RecyclerView.Adapter<Cu
 
         val id: TextView = itemView.findViewById(R.id.id)
         var title:TextView=itemView.findViewById(R.id.title)
+        var img:TextView=itemView.findViewById(R.id.image)
 
         fun data(get: ViewModel) {
             id.text =get.id
             title.text = get.title
+           // img.text=get.img
         }
     }
 
