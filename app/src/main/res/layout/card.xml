@@ -19,12 +19,20 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/fs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="data"
         android:padding="5dp"
         android:layout_marginTop="25dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/ln"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="data"
+        android:padding="5dp"
+        android:layout_marginTop="50dp"
         tools:ignore="MissingConstraints" />
 
 
