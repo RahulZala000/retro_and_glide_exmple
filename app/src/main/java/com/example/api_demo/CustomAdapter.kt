@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class CustomAdapter(private var mList: List<Data>): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card, parent, false))
     }
@@ -15,7 +17,7 @@ class CustomAdapter(private var mList: List<Data>): RecyclerView.Adapter<CustomA
         //return holder.data(mList[position])
 
         holder.id.text= mList[position].toString()
-        holder.fn.text= mList[position].toString()
+       // holder.fn.text= mList[position].toString()
 
 
     }
@@ -27,13 +29,15 @@ class CustomAdapter(private var mList: List<Data>): RecyclerView.Adapter<CustomA
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
         val id: TextView = itemView.findViewById(R.id.id)
-        var fn: TextView = itemView.findViewById(R.id.title)
-        var ln: TextView = itemView.findViewById(R.id.title)
+       var fn: TextView = itemView.findViewById(R.id.fn)
+        var ln: TextView = itemView.findViewById(R.id.ln)
 
-        fun data(get: Data) {
-            id.text = get.id.toString()
-            fn.text = get.first_name
-            ln.text = get.last_name
+       fun data(get: Data) {
+          /*  id.text = get.id.toString()
+            fn.text = get.firstName
+            ln.text = get.lastName*/
+
+           //super(get)
 
         }
 

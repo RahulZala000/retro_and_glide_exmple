@@ -9,4 +9,12 @@ interface ApiInterface {
     @GET("users")
     fun getProfile(): Call<Data>
 
+    @GET("users")
+    fun info():Call<profile>
+
+    @GET("users")
+    fun data():Call<profile>
+
+
+
 }

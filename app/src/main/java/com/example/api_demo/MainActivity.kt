@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
    // var Base="https://jsonplaceholder.typicode.com/"
-    var Base="https://reqres.in/api/"
+   // var Base="https://reqres.in/api/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +25,51 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
        // getData()
-
         ListingData()
 
+
+        binding.sub.setOnClickListener()
+        {
+            getData()
+        }
+    }
+
+    fun getData()
+    {
+        var api:ApiInterface=retroapi().getData().create(ApiInterface::class.java)
+        var retrodata=api.info()
+
+        retrodata.enqueue(object : Callback<profile>{
+            override fun onResponse(call: Call<profile>, response: Response<profile>)
+            {
+
+                Log.d("success 2","pass")
+                //var Res=response.body()
+                var mystr= StringBuilder()
+                var Res = listOf(response.body())
+
+                Toast.makeText(this@MainActivity,"success ${Res}",Toast.LENGTH_LONG).show()
+
+               for(Mydata in Res)
+                {
+                    mystr.append(Mydata!!.data)
+                    mystr.append("\n")
+                    mystr.append(Mydata.page)
+                    mystr.append("\n")
+                    mystr.append(Mydata.total_pages)
+                    mystr.append("\n\n")
+
+                }
+
+
+                /*  if(Mydata.id%10==0)
+                      mystr.append("\n")*/
+                binding.ans.text=mystr
+            }
+            override fun onFailure(call: Call<profile>, t: Throwable) {
+                Log.d("failed","fail :"+t.message)
+            }
+        })
 
     }
 
@@ -37,23 +79,31 @@ class MainActivity : AppCompatActivity() {
         var api:ApiInterface=retroapi().getData().create(ApiInterface::class.java)
         var retrodata=api.getProfile()
 
-
-        //retrodata.enqueue(object :Callback<Data>)
-
         retrodata.enqueue(object : Callback<Data>{
-            override fun onResponse(call: Call<Data>, response: Response<Data>) {
-                Toast.makeText(this@MainActivity,"succes",Toast.LENGTH_LONG).show()
+            override fun onResponse(call: Call<Data>, response: Response<Data>)
+            {
 
+                Log.d("success","pass")
+            //var Res=response.body()
+               var Res = listOf(response.body())
+
+                Toast.makeText(this@MainActivity,"success ${Res}",Toast.LENGTH_LONG).show()
+
+              //  for(mydata in Res)
+                var mystr= StringBuilder()
+                        mystr.append("\n")
+                        /*  if(Mydata.id%10==0)
+                              mystr.append("\n")*/
+                binding.ans.text=mystr
             }
-
             override fun onFailure(call: Call<Data>, t: Throwable) {
-                Toast.makeText(this@MainActivity,"error",Toast.LENGTH_LONG).show()
+              Log.d("failed","fail :"+t.message)
             }
+        })
 
 
-        }
 
-        )
+
 
     }
 
@@ -94,6 +144,8 @@ class MainActivity : AppCompatActivity() {
         })
     }*/
 }
+
+
 
 
 

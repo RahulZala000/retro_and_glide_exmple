@@ -19,7 +19,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/fs"
+        android:id="@+id/fn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="data"

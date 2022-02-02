@@ -20,6 +20,6 @@ class retroapi {
                 .baseUrl(Base)
                 .build()
 
-        return retro
+        return retro!!
     }
 }
